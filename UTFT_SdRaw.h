@@ -23,6 +23,7 @@ class UTFT_SdRaw
 		UTFT_SdRaw(UTFT *ptrUTFT);
 
 		int load(int x, int y, int sx, int sy, char *filename, int bufmult=1, bool iswap=0);
+		int loadS(int x, int y, char *filename, int bufmult, bool iswap);
 		int loadcpld(int x, int y, int sx, int sy, char *filename, int writepage=0, int bufmult=1, bool iswap=0);
 		int pan(int x, int y, int sx, int sy, unsigned long offsetx, unsigned long offsety, unsigned long sizex, unsigned long sizey, char *filename, bool iswap=0);
 		// int panscale(int x, int y, int sx, int sy, unsigned long offsetx, unsigned long offsety, unsigned long sizex, unsigned long sizey, char *filename, byte scale);
