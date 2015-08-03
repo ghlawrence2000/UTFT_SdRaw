@@ -1,3 +1,5 @@
+Reorganised structure and added 'library.properties' file to conform to Library Spec V1.5.X
+
 Added the ability to draw from Serial source. 
 
 Just a SMALL update to remove the outdated #include <SdStream.h>
