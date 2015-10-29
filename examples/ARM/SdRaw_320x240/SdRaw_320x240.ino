@@ -1,3 +1,11 @@
+// UTFT_SdRaw_320x240_Demo
+// Copyright (C)2015 Graham Lawrence (GHLawrence2000). All Rights reserved.
+// web: https://github.com/ghlawrence2000/UTFT_SdRaw
+//
+// This program is a demo of how to use the functions provided by UTFT_SdRaw.
+//
+// This program requires the UTFT, UTouch, UTFT_Buttons and SdFat libraries.
+//
 #include <SPI.h>
 // SdFat lib from here :-
 // https://github.com/greiman/SdFat/archive/master.zip
@@ -30,9 +38,6 @@ int wait = 2, pressed_button;
 // Remember to change the model parameter to suit your display module!
 
 UTFT myGLCD(ITDB32S, 25, 26, 27, 28);
-
-
-
 
 // Initialize touchscreen
 // ----------------------

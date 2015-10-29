@@ -1,3 +1,6 @@
+Re-written the loadS function to be AVR/ARM compliant and provided an Example,
+also added descriptive headers to all of the examples.
+
 Reorganised structure and added 'library.properties' file to conform to Library Spec V1.5.X
 
 Added the ability to draw from Serial source. 

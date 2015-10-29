@@ -4,3 +4,4 @@ load		KEYWORD2
 pan	 	KEYWORD2
 panscale		KEYWORD2
 loadCPLD	KEYWORD2
+loadS		KEYWORD2
