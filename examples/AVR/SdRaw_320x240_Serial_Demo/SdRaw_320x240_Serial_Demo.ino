@@ -10,6 +10,9 @@
 //
 // This program requires the UTFT and SdFat libraries.
 //
+// Please Note!! You will need to uncomment line 51 of the Processing sketch
+// 'SdRaw_Serial_Uploader' which is a delay, this is required only for AVR.
+// Without the delay, it will NOT work!
 
 #include <UTFT.h>
 #include <UTFT_SdRaw.h>
@@ -25,7 +28,7 @@
 // ElecHouse TFT LCD/SD Shield for Arduino Due : <display model>,22,23,31,33
 //
 // Remember to change the model parameter to suit your display module!
-UTFT myGLCD(CPLD, 25, 26, 27, 28);
+UTFT myGLCD(ITDB32S, 38, 39, 40, 41);
 
 UTFT_SdRaw myFiles(&myGLCD);
 
@@ -35,16 +38,16 @@ void setup()
   myGLCD.clrScr();
 
   // Open Serial communications and wait for port to open:
-  SerialUSB.begin(115200);
-  while (!SerialUSB) ;
+  Serial.begin(115200);
+  while (!Serial) ;
   // wait for Serial port to connect. Needed for Leonardo and DUE
 }
 
 void loop()
 {
-  while (!SerialUSB.available()) ;                  // Wait for Serial connection
-  if (SerialUSB.find("HELLO\n")) {                  // Wait for host
-    SerialUSB.println("OK");                        // Tell host we are ready
+  while (!Serial.available()) ;                  // Wait for Serial connection
+  if (Serial.find("HELLO\n")) {                  // Wait for host
+    Serial.println("OK");                        // Tell host we are ready
   }
   // loadS(port, x, y, xsize, ysize, buffermultiplier, invert colours)
   // port can be Serial / SerialUSB
@@ -53,5 +56,5 @@ void loop()
   // buffer multiplier is used to potentially increase speed a little :-
   //      total buffer size = buffermultiplier * 2 * xsize
   // invert colours is used to swap the MSB/LSB if colour appears wrong
-  myFiles.loadS(SerialUSB, 0, 0, 320, 240, 4 , 0);  // Draw Image
+  myFiles.loadS(0, 0, 320, 240, 1 , 0);  // Draw Image
 }

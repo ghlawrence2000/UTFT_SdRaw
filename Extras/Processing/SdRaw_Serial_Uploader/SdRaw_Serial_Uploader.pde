@@ -48,6 +48,7 @@ void setup() {
       continue;
     }
     print("Trying port " + portname + "...");
+    delay(1500); // uncomment this line if using AVR
     port.write("HELLO\n");
     delay(20);
     if (((s = readLine()) != null) && s.contains("OK")) {
@@ -71,10 +72,10 @@ void fileSelected(File f) {
     println("Selected file: " + f.getAbsolutePath());
     byte input[] = loadBytes(f.getAbsolutePath());
     port.write("IMAGE");
-    String s;
     mytime=millis();
     port.write(input);
     println("Time taken "+(millis()-mytime)+" ms");
+    //delay(100000);
   } 
   done = true;
 }

@@ -104,14 +104,14 @@ int UTFT_SdRaw::load(int x, int y, int sx, int sy, char *filename, int bufmult, 
 }
 
 #if defined(__AVR__)
-int UTFT_SdRaw::loadS(HardwareSerial port, int x, int y, int sx, int sy, int bufmult, bool iswap)
+int UTFT_SdRaw::loadS(int x, int y, int sx, int sy, int bufmult, bool iswap)
 {
-  while (!port.find("IMAGE")); // Wait for IMAGE command from host
+  while (!Serial.find("IMAGE")); // Wait for IMAGE command from host
   byte buf[2 * bufmult * sx];
   int cx, cy, cp;
   word result;
-  while ((cy = port.available()) == 0);
-  if (cy = (port.available()) > 0)
+  while(!Serial.available());
+  if (Serial.available() > 0)
   {
     cbi(_UTFT->P_CS, _UTFT->B_CS);
     cx = 0;
@@ -123,7 +123,7 @@ int UTFT_SdRaw::loadS(HardwareSerial port, int x, int y, int sx, int sy, int buf
     }
     for (int n = 0; n < sy; n += bufmult)
     {
-      result = port.readBytes(buf, ((2 * bufmult) * sx));
+      result = Serial.readBytes(buf, ((2 * bufmult) * sx));
       if (_UTFT->orient == PORTRAIT)
       {
         for (int i = 0; i < result; i += 2)
@@ -184,10 +184,6 @@ int UTFT_SdRaw::loadS(HardwareSerial port, int x, int y, int sx, int sy, int buf
     _UTFT->setXY(0, 0, _UTFT->getDisplayXSize() - 1, _UTFT->getDisplayYSize() - 1);
     sbi(_UTFT->P_CS, _UTFT->B_CS);
     return 0;
-  }
-  else
-  {
-    return 99;
   }
 }
 #elif defined(__arm__)

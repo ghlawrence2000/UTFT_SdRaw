@@ -24,7 +24,7 @@ class UTFT_SdRaw
 
     int load(int x, int y, int sx, int sy, char *filename, int bufmult = 1, bool iswap = 0);
 #if defined(__AVR__)
-    int loadS(HardwareSerial port, int x, int y, int sx, int sy, int bufmult, bool iswap);
+    int loadS(int x, int y, int sx, int sy, int bufmult, bool iswap);
 #elif defined(__arm__)
     int loadS(Serial_ port, int x, int y, int sx, int sy, int bufmult, bool iswap);
     int loadS(UARTClass port, int x, int y, int sx, int sy, int bufmult, bool iswap);
