@@ -1,13 +1,13 @@
-Re-written the loadS function to be AVR/ARM compliant, three examples are provided,
-one each for AVR, ARM_NativePort and ARM_ProgrammingPort.
+Three examples are now provided for drawing from Serial, ARM_ProgrammingPort, ARM_NativePort and AVR. (30th October)
 
-Added descriptive headers to all of the examples.
+Re-written the loadS function to be AVR/ARM compliant and provided an Example,
+also added descriptive headers to all of the examples. (29th October 2015)
 
-Reorganised structure and added 'library.properties' file to conform to Library Spec V1.5.X
+Reorganised structure and added 'library.properties' file to conform to Library Spec V1.5.X (3rd August 2015)
 
-Added the ability to draw from Serial source. 
+Added the ability to draw from Serial source.
 
-Just a SMALL update to remove the outdated #include <SdStream.h>
+Just a SMALL update to remove the outdated #include
 
 Also added a statistics file showing the speed increase in the ARM 800x480 example as a result of the latest SdFat version.
 
