@@ -4,14 +4,14 @@
 //
 // This program is a demo of how to use the functions provided by UTFT_SdRaw.
 //
-// This program requires the UTFT, UTouch, UTFT_Buttons and SdFat libraries.
+// This program requires the UTFT, URTouch, UTFT_Buttons and SdFat libraries.
 //
 #include <SPI.h>
 // SdFat lib from here :-
 // https://github.com/greiman/SdFat/archive/master.zip
 #include <SdFat.h>
 #include <UTFT.h>
-#include <UTouch.h>
+#include <URTouch.h>
 #include <UTFT_Buttons.h>
 #include <UTFT_SdRaw.h>
 extern uint8_t SmallFont[];
@@ -53,7 +53,7 @@ UTFT myGLCD(CPLD, 38, 39, 40, 41);
 // Teensy 3.x TFT Test Board                   : 26,31,27,28,29
 // ElecHouse TFT LCD/SD Shield for Arduino Due : 25,26,27,29,30
 //
-UTouch  myTouch( 6, 5, 4, 3, 2);
+URTouch  myTouch( 6, 5, 4, 3, 2);
 
 UTFT_SdRaw myFiles(&myGLCD);
 UTFT_Buttons  myButtons(&myGLCD, &myTouch);
